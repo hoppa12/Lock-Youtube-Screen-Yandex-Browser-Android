@@ -10,6 +10,7 @@ Usage
 Double tap the red Youtube navbar while video in Portrait mode.
 Double tap again to unlock.
 
-ToDo
-Add a toggle button
-Disable Video fullscreen when phone is flipped to landscape mode
+ToDo:
+Add a toggle button.
+Disable Video fullscreen when phone is flipped to landscape mode.
+Fix manifest file to allow script to only run on youtube pages.
