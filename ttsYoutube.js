@@ -18,7 +18,7 @@ const youtubeOverlay = ev =>
         {
             
             let newDiv = document.createElement("div"); 
-            newDiv.innerHTML = `<div style="z-index:9999999999!important;top:0!important;left:0!important;height:6000px;width:100vw;background-color:white;position:absolute!important" class="customOverlay"></div>`
+            newDiv.innerHTML = `<div style="z-index:9999999999!important;top:0!important;left:0!important;height:6000px;width:100vw;background-color:black;position:absolute!important" class="customOverlay"></div>`
             document.body.appendChild(newDiv)
          
 
