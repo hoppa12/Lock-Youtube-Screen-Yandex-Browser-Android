@@ -12,7 +12,7 @@
     }
   ],
   "permissions": [
-    "tabs", "https://*/youtube.com/*"
+    "tabs", "https://*.youtube.com/*"
   ],
 
   
