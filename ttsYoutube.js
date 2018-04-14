@@ -1,34 +1,70 @@
 
-
-
-const youtubeOverlay = ev =>
+const createButton = () =>
 {
-    
-    if(/youtube.com\/watch\?/.test(window.location.href))
+    if(document.querySelector("#customLockScreen"))
     {
-        if(document.querySelector(".customOverlay"))
-        {
-            document.querySelector(".customOverlay").parentElement.remove();
-          
-            return;
-        }
-        
-        const hTarget = document.querySelector(".koya-partial");
-        if(ev.target === hTarget)
-        {
-            
-            let newDiv = document.createElement("div"); 
-            newDiv.innerHTML = `<div style="z-index:9999999999!important;top:0!important;left:0!important;height:6000px;width:100vw;background-color:black;position:absolute!important" class="customOverlay"></div>`;
-            document.body.appendChild(newDiv);
-         
+        return;
+    }
 
-            return;
-        }
+    const newDiv = document.createElement("a"); 
+    newDiv.onclick = function () {
+        let newDiv = document.createElement("div"); 
+        newDiv.innerHTML = `
+        <div ondblclick="removeCustomElem()"
+         class="customOverlay"></div>`;
+        document.body.appendChild(newDiv);
+        document.querySelector(".customOverlay").addEventListener('dblclick',removeCustomElem);
+        document.querySelector("#cancel_button").click();
+    };
+    newDiv.href = "#";
+    newDiv.className = "cub wtb";;
+    newDiv.textContent="Lock Screen";
+    newDiv.id="customLockScreen";
+    document.querySelector('.koya-partial > .koya-komponent-binding > a')
+    .parentElement
+    .appendChild(newDiv);
+    
+};
+
+const removeCustomElem = () => 
+{   
+    document.querySelector(".customOverlay").removeEventListener("dblclick",removeCustomElem);
+    document.querySelector(".customOverlay").parentElement.remove();
+};
+
+
+
+
+
+const sleep = wait => new Promise(resolve => setTimeout(resolve,wait));
+const checkForButton = async (e) =>
+{
+  
+  if(e.target !== document.querySelector('button[title="Settings"]').firstChild)
+  {
+      return;
+  }
+    const elemExist = () => document.querySelector(".koya-partial > .koya-komponent-binding > a");
+    const overlayOption = () => document.querySelector('#customLockScreen');
+    
+    if(overlayOption())
+    {
+       
+        return;
+    }
+
+   
+    while(!elemExist())
+    {
+        
+        await sleep(500);
         
     }
-  return;
 
+    createButton();
+   
+    return;
     
-}
+};
 
-document.body.addEventListener("dblclick", youtubeOverlay);
+document.body.addEventListener("click", e => checkForButton(e));
