@@ -13,7 +13,7 @@ const createButton = () =>
         <div ondblclick="removeCustomElem()"
          class="customOverlay"></div>`;
         document.body.appendChild(newDiv);
-        document.querySelector(".customOverlay").addEventListener('dblclick',removeCustomElem);
+       
         document.querySelector("#cancel_button").click();
     };
     newDiv.href = "#";
@@ -28,7 +28,7 @@ const createButton = () =>
 
 const removeCustomElem = () => 
 {   
-    document.querySelector(".customOverlay").removeEventListener("dblclick",removeCustomElem);
+   
     document.querySelector(".customOverlay").parentElement.remove();
 };
 
