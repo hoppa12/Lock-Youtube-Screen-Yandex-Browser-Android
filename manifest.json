@@ -1,22 +1,23 @@
 {
   "manifest_version": 2,
 
-  "name": "Simple Youtube Lock Screen",
-  "description": "Simple Youtube Overlay to create a lock screen",
+  "name": "Youtube LockScreen",
+  "description": "Simple Lock Screen, useful for background music and ",
   "version": "0.1",
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["ttsYoutube.js"]
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["youtube.js"],
+      "css" : ["youtube.css"]
     }
   ],
   "permissions": [
-    "tabs", "http://*/*", "https://*/", "activeTab"
+    "tabs", "https://*/youtube.com/*"
   ],
 
   
   "browser_action": {
-    "default_title": "Simple Youtube Lock Screen",
+    "default_title": "Simple Youtube Overlay Extension",
     "default_icon": {
       "19": "img/sub19.png",
       "38": "img/sub38.png",
