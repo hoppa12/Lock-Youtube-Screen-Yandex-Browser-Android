@@ -36,4 +36,4 @@ const removeCustomElem = () =>
   document.querySelector(".customOverlay").parentElement.remove();
 };
 
-document.body.addEventListener("click", e => createButton(e));
+document.body.addEventListener("click", createButton);
