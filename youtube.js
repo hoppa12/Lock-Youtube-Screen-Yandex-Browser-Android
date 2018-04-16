@@ -13,11 +13,11 @@ const createButton = e =>
     const newDiv = document.createElement("a"); 
     newDiv.onclick = () => 
     {
-        let newDiv = document.createElement("div"); 
-        newDiv.innerHTML = `
+        let overlayDiv = document.createElement("div"); 
+        overlayDiv.innerHTML = `
         <div ondblclick="removeCustomElem()"
          class="customOverlay"></div>`;
-        document.body.appendChild(newDiv);
+        document.body.appendChild(overlayDiv);
        
         document.querySelector("#cancel_button").click();
     };
