@@ -1,13 +1,18 @@
 
-const createButton = () =>
+const createButton = e =>
 {
-    if(document.querySelector("#customLockScreen"))
-    {
+
+    if(e.target !== document.querySelector('button[title="Settings"]').firstChild
+        && e.target !== document.querySelector('button[title="Settings"]')
+        && e.target !== document.querySelector('button[title="Settings"]').parentElement)
+    {   
+       
         return;
     }
 
     const newDiv = document.createElement("a"); 
-    newDiv.onclick = function () {
+    newDiv.onclick = () => 
+    {
         let newDiv = document.createElement("div"); 
         newDiv.innerHTML = `
         <div ondblclick="removeCustomElem()"
@@ -28,43 +33,7 @@ const createButton = () =>
 
 const removeCustomElem = () => 
 {   
-   
-    document.querySelector(".customOverlay").parentElement.remove();
+  document.querySelector(".customOverlay").parentElement.remove();
 };
 
-
-
-
-
-const sleep = wait => new Promise(resolve => setTimeout(resolve,wait));
-const checkForButton = async (e) =>
-{
-  
-  if(e.target !== document.querySelector('button[title="Settings"]').firstChild)
-  {
-      return;
-  }
-    const elemExist = () => document.querySelector(".koya-partial > .koya-komponent-binding > a");
-    const overlayOption = () => document.querySelector('#customLockScreen');
-    
-    if(overlayOption())
-    {
-       
-        return;
-    }
-
-   
-    while(!elemExist())
-    {
-        
-        await sleep(500);
-        
-    }
-
-    createButton();
-   
-    return;
-    
-};
-
-document.body.addEventListener("click", e => checkForButton(e));
+document.body.addEventListener("click", e => createButton(e));
