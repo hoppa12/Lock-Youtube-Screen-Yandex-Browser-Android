@@ -1,10 +1,16 @@
 
 const createButton = e =>
 {
+    let targetElem = document.querySelector('button[title="Settings"]')
 
-    if(e.target !== document.querySelector('button[title="Settings"]').firstChild
-        && e.target !== document.querySelector('button[title="Settings"]')
-        && e.target !== document.querySelector('button[title="Settings"]').parentElement)
+    if (!targetElem)
+    {
+        return;
+    }
+
+    if(e.target !== targetElem
+        && e.target !== targetElem.firstChild
+        && e.target !== targetElem.parentElement.parentElement)
     {   
        
         return;
