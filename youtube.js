@@ -1,4 +1,3 @@
-
 const createButton = e =>
 {
     let targetElem = document.querySelector('button[title="Settings"]')
@@ -27,12 +26,14 @@ const createButton = e =>
        
         document.querySelector("#cancel_button").click();
     };
+    let elem = document.querySelector('.koya-partial > .koya-komponent-binding > a');
     newDiv.href = "#";
-    newDiv.className = "cub wtb";;
+    newDiv.className = 
+    elem.classList
+    .value;
     newDiv.textContent="Lock Screen";
     newDiv.id="customLockScreen";
-    document.querySelector('.koya-partial > .koya-komponent-binding > a')
-    .parentElement
+    elem.parentElement
     .appendChild(newDiv);
     
 };
@@ -43,3 +44,4 @@ const removeCustomElem = () =>
 };
 
 document.body.addEventListener("click", createButton);
+
