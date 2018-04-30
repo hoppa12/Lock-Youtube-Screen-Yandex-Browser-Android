@@ -11,16 +11,27 @@ chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
       let check = document.querySelector(".customOverlay");
   
       if (check) {
+        check.removeEventListener("dblclick", preventDBlClick, false);
         document.body.removeChild(check);
       } else {
         let html = `<div class="customOverlay"></div>`;
         let parser = new DOMParser();
         let doc = parser.parseFromString(html, "text/html");
         document.body.appendChild(doc.querySelector("div"));
+  
+        document
+          .querySelector(".customOverlay")
+          .addEventListener("dblclick", preventDBlClick);
+  
         return;
       }
   
       return;
     }
   });
+  
+  const preventDBlClick = e => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
   
