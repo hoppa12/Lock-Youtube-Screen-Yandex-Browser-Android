@@ -29,7 +29,7 @@ const setToggleSwitch = bool => {
   });
 };
 chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
-  if (tabs[0].url.includes("youtube.com/watch")) {
+  if (tabs[0].url.includes("youtube.com")) {
     chrome.tabs.sendMessage(tabs[0].id, { overlay: "check" }, response => {
       setToggleSwitch(response.overlay);
     });
