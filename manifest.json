@@ -1,27 +1,28 @@
 {
-  "manifest_version": 2,
-
-  "name": "Youtube LockScreen",
-  "description": "Simple Lock Screen, useful for background music and ",
-  "version": "0.1",
-  "content_scripts": [
-    {
-      "matches": ["https://*.youtube.com/*"],
-      "js": ["youtube.js"],
-      "css" : ["youtube.css"]
-    }
-  ],
-  "permissions": [
-    "tabs", "https://*.youtube.com/*"
-  ],
-
+    "manifest_version": 2,
   
-  "browser_action": {
-    "default_title": "Simple Youtube Overlay Extension",
-    "default_icon": {
-      "19": "img/sub19.png",
-      "38": "img/sub38.png",
-      "128": "img/sub128.png"
+    "name": "Youtube LockScreen",
+    "description": "Simple Lock Screen, useful for background music and ",
+    "version": "0.1",
+    "content_scripts": [
+      {
+        "matches": ["https://*.youtube.com/*"],
+        "js": ["youtube.js"],
+        "css" : ["youtube.css"]
+      }
+    ],
+    "permissions": [
+      "tabs", "https://*.youtube.com/*"
+    ],
+  
+    
+    "browser_action": {
+      "default_title": "Simple Youtube Overlay Extension",
+      "default_popup": "options.html",
+      "default_icon": {
+        "19": "img/sub19.png",
+        "38": "img/sub38.png",
+        "128": "img/sub128.png"
+      }
     }
   }
-}
